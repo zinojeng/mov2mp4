@@ -20,7 +20,29 @@ A command-line tool to convert MOV video files to MP4 format using FFmpeg, with 
 
 ## Installation
 
-### Install FFmpeg
+### Quick Start (Recommended)
+
+The easiest way to get started is using the automated setup scripts:
+
+**macOS/Linux:**
+```bash
+./start.sh video.mov
+```
+
+**Windows:**
+```batch
+start.bat video.mov
+```
+
+These scripts will automatically:
+1. Check if FFmpeg is installed
+2. Create a Python virtual environment
+3. Install all dependencies
+4. Run the converter
+
+### Manual Installation
+
+#### 1. Install FFmpeg
 
 **macOS:**
 ```bash
@@ -41,7 +63,7 @@ sudo yum install ffmpeg
 **Windows:**
 Download from [https://ffmpeg.org/download.html](https://ffmpeg.org/download.html) and add to your PATH.
 
-### Install mov2mp4
+#### 2. Install mov2mp4
 
 ```bash
 # Clone or download this repository

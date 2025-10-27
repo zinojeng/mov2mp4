@@ -1,6 +1,26 @@
 # Quick Start Guide
 
-## Installation
+## Easiest Way: One-Command Setup & Run
+
+### macOS/Linux
+```bash
+./start.sh video.mov
+```
+
+### Windows
+```batch
+start.bat video.mov
+```
+
+The `start.sh`/`start.bat` script will automatically:
+- Check Python and FFmpeg installation
+- Create a virtual environment
+- Install all dependencies
+- Run the converter
+
+That's it! 🎉
+
+## Manual Installation
 
 1. **Install FFmpeg** (if not already installed):
    ```bash
@@ -13,7 +33,7 @@
 
 2. **Install the converter**:
    ```bash
-   cd /Users/zino/Desktop/OpenAI/mov2mp4
+   cd mov2mp4
    pip install -e .
    ```
 
@@ -54,11 +74,35 @@ mov2mp4 /path/to/videos/ -r
 mov2mp4 /path/to/videos/ -p 4
 ```
 
+## Using the Automated Scripts
+
+### Run with arguments
+```bash
+# macOS/Linux
+./start.sh video.mov -q high -o ./output/
+./start.sh *.mov -p 4
+./start.sh /path/to/videos/ -r
+
+# Windows
+start.bat video.mov -q high -o .\output\
+start.bat *.mov -p 4
+start.bat C:\Videos\ -r
+```
+
+### Show help
+```bash
+# macOS/Linux
+./start.sh --help
+
+# Windows
+start.bat --help
+```
+
 ## Testing Without Installation
 
-You can also run directly with Python:
+You can also run directly with Python (after installing dependencies):
 ```bash
-cd /Users/zino/Desktop/OpenAI/mov2mp4
+cd mov2mp4
 python -m mov2mp4.cli video.mov
 ```
 
