@@ -1,0 +1,88 @@
+# Specification: MOV to MP4 Converter
+
+## Overview
+A command-line application that converts MOV video files to MP4 format with configurable quality settings.
+
+## Core Features
+
+### 1. Single File Conversion
+**What**: Convert a single MOV file to MP4
+**Input**: Path to a MOV file
+**Output**: MP4 file in the same directory or specified output directory
+**Behavior**:
+- Validate input file exists and is a valid MOV file
+- Convert using H.264 codec with AAC audio
+- Preserve original resolution and frame rate
+- Show real-time progress bar
+- Report success or failure with clear messages
+
+### 2. Batch Conversion
+**What**: Convert multiple MOV files at once
+**Input**: Multiple file paths or a directory path
+**Output**: Multiple MP4 files
+**Behavior**:
+- Find all MOV files in specified directory (optional: recursive)
+- Convert each file sequentially or in parallel
+- Continue processing even if one file fails
+- Provide summary report at the end
+
+### 3. Quality Settings
+**What**: Allow users to choose output quality
+**Options**:
+- Low: Smaller file size, lower quality (CRF 28)
+- Medium: Balanced (CRF 23) [default]
+- High: Best quality, larger file size (CRF 18)
+**Behavior**:
+- Use FFmpeg CRF (Constant Rate Factor) values
+- Display estimated file size before conversion (optional)
+
+### 4. Progress Indication
+**What**: Show conversion progress to user
+**Display**:
+- Current file being processed
+- Progress percentage
+- Estimated time remaining
+- Speed (fps)
+**Behavior**:
+- Update in real-time without flooding console
+- Support cancellation with Ctrl+C
+
+### 5. Error Handling
+**What**: Handle errors gracefully
+**Scenarios**:
+- File not found
+- Invalid file format
+- Insufficient disk space
+- FFmpeg not installed
+- Permission denied
+- Corrupted video file
+**Behavior**:
+- Display clear, actionable error messages
+- Log errors to file for debugging
+- Exit cleanly without leaving temp files
+
+## Command-Line Interface
+
+### Basic Usage
+```
+mov2mp4 input.mov
+mov2mp4 input.mov -o output_directory
+mov2mp4 *.mov
+mov2mp4 /path/to/videos/ --recursive
+```
+
+### Options
+- `-o, --output`: Output directory (default: same as input)
+- `-q, --quality`: Quality level (low/medium/high, default: medium)
+- `-r, --recursive`: Process directories recursively
+- `-p, --parallel`: Number of parallel conversions (default: 1)
+- `-v, --verbose`: Verbose output
+- `-h, --help`: Show help message
+- `--version`: Show version
+
+## Non-Functional Requirements
+- Must work on macOS, Linux, and Windows
+- Conversion should not consume excessive memory
+- Support files up to several GB in size
+- Complete typical conversion in reasonable time
+- No data loss or quality degradation beyond specified settings

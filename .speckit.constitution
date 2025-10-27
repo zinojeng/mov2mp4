@@ -1,0 +1,33 @@
+# Project Constitution: MOV to MP4 Converter
+
+## Code Quality
+- Write clean, readable, and maintainable code
+- Follow PEP 8 style guide for Python
+- Use type hints for function signatures
+- Add docstrings for all functions and classes
+- Keep functions small and focused on single responsibilities
+
+## Testing Standards
+- Write unit tests for core functionality
+- Test error handling and edge cases
+- Aim for high code coverage on critical paths
+- Include integration tests for the conversion pipeline
+
+## User Experience
+- Provide clear and helpful error messages
+- Show progress feedback during conversions
+- Make the CLI intuitive with sensible defaults
+- Include help documentation and usage examples
+- Handle interruptions gracefully (Ctrl+C)
+
+## Performance
+- Support batch processing efficiently
+- Use multiprocessing for concurrent conversions when possible
+- Optimize memory usage for large files
+- Provide estimated time remaining for long conversions
+
+## Dependencies
+- Minimize external dependencies
+- Use well-maintained and popular libraries
+- Document all dependencies clearly
+- Ensure cross-platform compatibility (Windows, macOS, Linux)
